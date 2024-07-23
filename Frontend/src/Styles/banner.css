@@ -1,0 +1,107 @@
+/* Carousel Container */
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  height: 500px; /* Set height */
+}
+
+/* Carousel */
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Slide Container */
+.slides {
+  display: flex;
+  transition: transform 1s ease-in-out; /* Smooth slide transition */
+}
+
+/* Slide */
+.slide {
+  min-width: 100%;
+  height: 100%;
+}
+
+/* Thumbnails */
+.thumbnails {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.thumbnail {
+  cursor: pointer;
+  margin: 0 5px;
+  transition: transform 0.3s ease; /* Smooth thumbnail hover effect */
+}
+
+.thumbnail.active {
+  transform: scale(1.1); /* Highlight active thumbnail */
+}
+
+/* Arrows */
+.arrows {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+}
+
+.arrows button {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: #fff;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+}
+
+.arrows button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+/* Apply animation to slides */
+.slides .slide {
+  animation: slideIn 1s forwards; /* Add slide in animation */
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: fadeIn 1s ease-in; /* Fade in animation for images */
+}
